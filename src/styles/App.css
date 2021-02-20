@@ -6,7 +6,8 @@ header {
   border-bottom: 1px solid #B3EFB2;
 }
 
-header h1 {
+header a {
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
@@ -22,6 +23,4 @@ header ul a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
 }

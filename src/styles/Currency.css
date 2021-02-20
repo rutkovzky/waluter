@@ -6,7 +6,8 @@
 .currency-row {
   display: flex;
   flex-direction: row;
-  justify-items: start;
+  justify-items: center;
+  justify-content: space-between;
   align-items: center;
   height: 80px;
   border-bottom: 1px solid #B3EFB2;
@@ -23,6 +24,7 @@
 
 .currency h2 {
   margin-right: 10px;
+  letter-spacing: 1px;
 }
 
 .currency-data {
@@ -30,4 +32,8 @@
   text-align: center;
   justify-content: space-between;
   width: 100%;
+}
+
+.currency-mid {
+  font-size: 22px;
 }

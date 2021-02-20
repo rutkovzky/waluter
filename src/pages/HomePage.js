@@ -1,33 +1,32 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
-import '../styles/HomePage.css'
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import '../styles/HomePage.css';
 import Currency from "../components/Currency";
+import { listCurrencies } from '../redux/actions/currenciesActions';
 
 const HomePage = () => {
-  const [currencies, setCurrencies] = useState([]);
   const [search, setSearch] = useState('');
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await axios.get('http://api.nbp.pl/api/exchangerates/tables/C');
-        setCurrencies(data[0].rates)
-      } catch(err) {
-          console.log(err)
-      } 
-    }
+  const dispatch = useDispatch();
 
-    getData()
-  }, [])
+  const currenciesList = useSelector(state => state.currenciesList)
+
+  console.log(currenciesList)
+
+  useEffect(() => {
+    dispatch(listCurrencies())
+  }, [dispatch])
+
+
 
   const handleChange = e => {
     setSearch(e.target.value)
   }
 
-  const filterCurrencies = currencies.filter(currency => 
-    currency.currency.toLowerCase().includes(search.toLocaleLowerCase()) ||
-    currency.code.toLowerCase().includes(search.toLocaleLowerCase())
-  )
+  // const filterCurrencies = currencies.filter(currency => 
+  //   currency.currency.toLowerCase().includes(search.toLocaleLowerCase()) ||
+  //   currency.code.toLowerCase().includes(search.toLocaleLowerCase())
+  // )
   
   return (
     <div className='homepage-component'>
@@ -37,19 +36,11 @@ const HomePage = () => {
           <input type="text" placeholder="Szukaj" className="currency-input" onChange={handleChange}/>
         </form>
       </div>
-      <div className="info-container">
-        <div className="info-row">
-          <p>Nazwa waluty</p>
-          <p>Średni kurs waluty</p>
-          <p>Kupno</p>
-          <p>Sprzedaż</p>
-        </div>
-      </div>
-      {filterCurrencies.map(currency => {
+      {/* {filterCurrencies.map(currency => {
         return(
-          <Currency key={currency.code} name={currency.currency} code={currency.code} bid={currency.bid} ask={currency.ask} />
+          <Currency key={currency.code} name={currency.currency} code={currency.code} mid={currency.mid} />
         )
-      })}
+      })} */}
     </div>
   )
 }
