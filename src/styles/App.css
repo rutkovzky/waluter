@@ -17,7 +17,8 @@ header ul {
 }
 
 header ul a {
-  margin-left: 10px;
+  font-size: 20px;
+  margin-left: 20px;
   color: #fff;
   text-decoration: none;
   font-weight: bold;

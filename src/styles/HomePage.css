@@ -35,3 +35,13 @@
   color: black;
   font-size: 18px;
 }
+
+.info-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #B3EFB2;
+  width: 900px
+}

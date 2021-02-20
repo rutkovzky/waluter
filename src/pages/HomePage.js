@@ -37,6 +37,14 @@ const HomePage = () => {
           <input type="text" placeholder="Szukaj" className="currency-input" onChange={handleChange}/>
         </form>
       </div>
+      <div className="info-container">
+        <div className="info-row">
+          <p>Nazwa waluty</p>
+          <p>Średni kurs waluty</p>
+          <p>Kupno</p>
+          <p>Sprzedaż</p>
+        </div>
+      </div>
       {filterCurrencies.map(currency => {
         return(
           <Currency key={currency.code} name={currency.currency} code={currency.code} bid={currency.bid} ask={currency.ask} />

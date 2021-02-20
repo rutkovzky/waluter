@@ -6,8 +6,8 @@ const Header = () => {
     <header>
       <h1>Waluter</h1>
       <ul>
-        <Link to='/favourites'>Ulubione</Link>
-        <Link to='/info'>Info</Link>
+        <Link to='/favourites'><i style={{color: '#F45B69'}} className="fas fa-heart"></i> Ulubione</Link>
+        <Link to='/info'><i style={{color: '#FFDF64'}} className="fas fa-info-circle"></i> Info</Link>
       </ul>
     </header>
   )
