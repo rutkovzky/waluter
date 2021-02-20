@@ -1,0 +1,37 @@
+.homepage-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.homepage-component ul {
+  list-style: none;
+  padding: 20px;
+  font-size: 18px;
+}
+
+.homepage-component ul h3 {
+  margin-bottom: 10px;
+}
+
+.homepage-component ul li {
+  margin-top: 20px;
+}
+
+.currency-text {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.currency-input {
+  padding-left: 16px;
+  width: 300px;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  background-color: #E8F1F2;
+
+  color: black;
+  font-size: 18px;
+}

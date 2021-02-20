@@ -1,0 +1,33 @@
+.currency-container {
+  display: flex;
+  justify-content: center;
+}
+
+.currency-row {
+  display: flex;
+  flex-direction: row;
+  justify-items: start;
+  align-items: center;
+  height: 80px;
+  border-bottom: 1px solid #B3EFB2;
+  width: 900px
+}
+
+.currency {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-right: 20px;
+  min-width: 300px;
+}
+
+.currency h2 {
+  margin-right: 10px;
+}
+
+.currency-data {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  width: 100%;
+}
