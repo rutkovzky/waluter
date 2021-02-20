@@ -10,8 +10,7 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   const currenciesList = useSelector(state => state.currenciesList)
-
-  console.log(currenciesList)
+  const { currencies } = currenciesList
 
   useEffect(() => {
     dispatch(listCurrencies())
@@ -23,10 +22,10 @@ const HomePage = () => {
     setSearch(e.target.value)
   }
 
-  // const filterCurrencies = currencies.filter(currency => 
-  //   currency.currency.toLowerCase().includes(search.toLocaleLowerCase()) ||
-  //   currency.code.toLowerCase().includes(search.toLocaleLowerCase())
-  // )
+  const filterCurrencies = currencies.filter(currency => 
+    currency.currency.toLowerCase().includes(search.toLocaleLowerCase()) ||
+    currency.code.toLowerCase().includes(search.toLocaleLowerCase())
+  )
   
   return (
     <div className='homepage-component'>
@@ -36,11 +35,11 @@ const HomePage = () => {
           <input type="text" placeholder="Szukaj" className="currency-input" onChange={handleChange}/>
         </form>
       </div>
-      {/* {filterCurrencies.map(currency => {
+      {filterCurrencies.map(currency => {
         return(
           <Currency key={currency.code} name={currency.currency} code={currency.code} mid={currency.mid} />
         )
-      })} */}
+      })}
     </div>
   )
 }

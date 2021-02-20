@@ -2,12 +2,18 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { currenciesListReducer } from './redux/reducers/currenciesReducers';
+import { favouriteReducer } from './redux/reducers/favouritesReducers';
 
 const reducer = combineReducers({
-  currenciesList: currenciesListReducer
+  currenciesList: currenciesListReducer,
+  favourites: favouriteReducer
 })
 
-const initialState = {}
+const favouritesCurrenciesFromStorage = localStorage.getItem('favouritesCurrencies') ? JSON.parse(localStorage.getItem('favouritesCurrencies')) : []
+
+const initialState = {
+  favourites: {favouritesCurrencies: favouritesCurrenciesFromStorage}
+}
 
 const middleware = [thunk]
 
