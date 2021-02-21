@@ -2,7 +2,9 @@ import axios from 'axios';
 import {
   CURRENCIES_LIST_REQUEST,
   CURRENCIES_LIST_SUCCESS,
-  CURRENCIES_LIST_FAIL
+  CURRENCIES_LIST_FAIL,
+  FAVOURITE_ADDED,
+  FAVOURITE_REMOVED
 } from '../constants/currenciesConstants';
 
 export const listCurrencies = () => async (dispatch) => {
@@ -31,3 +33,18 @@ export const listCurrencies = () => async (dispatch) => {
     })
   }
 }
+
+export const addFavourite = (code) => async (dispatch) => ({
+  type: FAVOURITE_ADDED,
+  payload: code
+});
+  
+
+export const removeFavourite = code => {
+  return {
+    type: FAVOURITE_REMOVED,
+    payload: {
+      code: code
+    }
+  };
+};

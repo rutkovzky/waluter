@@ -1,15 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { currenciesListReducer } from './redux/reducers/currenciesReducers';
-import { favouriteReducer } from './redux/reducers/favouritesReducers';
+import { currenciesListReducer, favorites } from './redux/reducers/currenciesReducers';
 
 const reducer = combineReducers({
   currenciesList: currenciesListReducer,
-  favourites: favouriteReducer
+  favorites: favorites
 })
 
-const favouritesCurrenciesFromStorage = localStorage.getItem('favouritesCurrencies') ? JSON.parse(localStorage.getItem('favouritesCurrencies')) : []
+const favouritesCurrenciesFromStorage = localStorage.getItem('favourites') ? JSON.parse(localStorage.getItem('favouritesCurrencies')) : []
 
 const initialState = {
   favourites: {favouritesCurrencies: favouritesCurrenciesFromStorage}

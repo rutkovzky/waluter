@@ -16,8 +16,6 @@ const HomePage = () => {
     dispatch(listCurrencies())
   }, [dispatch])
 
-
-
   const handleChange = e => {
     setSearch(e.target.value)
   }
@@ -26,6 +24,7 @@ const HomePage = () => {
     currency.currency.toLowerCase().includes(search.toLocaleLowerCase()) ||
     currency.code.toLowerCase().includes(search.toLocaleLowerCase())
   )
+
   
   return (
     <div className='homepage-component'>
