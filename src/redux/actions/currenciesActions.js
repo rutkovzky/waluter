@@ -34,17 +34,25 @@ export const listCurrencies = () => async (dispatch) => {
   }
 }
 
-export const addFavourite = (code) => async (dispatch) => ({
-  type: FAVOURITE_ADDED,
-  payload: code
-});
+export const addFavourite = (name, code, mid) => async (dispatch) => {
+  dispatch({
+    type: FAVOURITE_ADDED,
+    payload: {
+      name,
+      code,
+      mid
+    }
+  })
+}
   
 
-export const removeFavourite = code => {
+export const removeFavourite = (name, code, mid) => {
   return {
     type: FAVOURITE_REMOVED,
     payload: {
-      code: code
+      name,
+      code,
+      mid
     }
   };
 };

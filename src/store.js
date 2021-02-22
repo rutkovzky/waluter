@@ -8,11 +8,8 @@ const reducer = combineReducers({
   favorites: favorites
 })
 
-const favouritesCurrenciesFromStorage = localStorage.getItem('favourites') ? JSON.parse(localStorage.getItem('favouritesCurrencies')) : []
 
-const initialState = {
-  favourites: {favouritesCurrencies: favouritesCurrenciesFromStorage}
-}
+const initialState = {}
 
 const middleware = [thunk]
 

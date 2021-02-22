@@ -19,15 +19,16 @@ export const currenciesListReducer = (state = { currencies: [] }, action) => {
   }
 }
 
-export const favorites = (state = { favorites: [] }, action) => {
+export const favorites = (state = [], action) => {
   switch (action.type) {
     case FAVOURITE_ADDED:
-      if(favorites.some(el => el === action.payload)){
+      if(state.find(el => el.code === action.payload.code)){
         return state
-      }
-      else {
+      } else {
         return state.concat(action.payload)
       }
+    case FAVOURITE_REMOVED: 
+      return state.filter(el => el.code !== action.payload.code)
     default: 
       return state
   }
