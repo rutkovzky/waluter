@@ -1,0 +1,24 @@
+.favourite-component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.favourite-component-button {
+  font-size: 18px;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.favourite-component-h1 {
+  margin-bottom: 30px;
+}
+
+.favourite-component-empty-h1 {
+  text-align: center;
+  margin-top: 50px;
+}

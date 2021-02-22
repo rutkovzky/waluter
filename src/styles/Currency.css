@@ -35,10 +35,12 @@
 }
 
 .currency-mid {
+  align-self: center;
   font-size: 22px;
 }
 
 .favourite-button {
+  font-size: 16px;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;

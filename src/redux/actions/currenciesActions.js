@@ -4,7 +4,8 @@ import {
   CURRENCIES_LIST_SUCCESS,
   CURRENCIES_LIST_FAIL,
   FAVOURITE_ADDED,
-  FAVOURITE_REMOVED
+  FAVOURITE_REMOVED, 
+  FAVORITES_ALL_REMOVED
 } from '../constants/currenciesConstants';
 
 export const listCurrencies = () => async (dispatch) => {
@@ -45,7 +46,6 @@ export const addFavourite = (name, code, mid) => async (dispatch) => {
   })
 }
   
-
 export const removeFavourite = (name, code, mid) => {
   return {
     type: FAVOURITE_REMOVED,
@@ -56,3 +56,10 @@ export const removeFavourite = (name, code, mid) => {
     }
   };
 };
+
+export const removeAllFavorites = (table) => {
+  return {
+    type: FAVORITES_ALL_REMOVED,
+    payload: table
+  }
+}

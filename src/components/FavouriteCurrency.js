@@ -1,9 +1,9 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { removeFavourite } from '../redux/actions/currenciesActions';
+import React, { useState } from 'react';
+import RemovePopup from '../components/RemovePopup';
+import '../styles/Popup.css';
 
 const FavouriteCurrency = ({ name, code, mid }) => {
-  const dispatch = useDispatch()
+  const [viewPopup, setViewPopup] = useState(false)
 
   return (
     <div>
@@ -15,7 +15,8 @@ const FavouriteCurrency = ({ name, code, mid }) => {
           </div>
           <div className='currency-data'>
             <p className="currency-mid">{mid.toFixed(2)} PLN</p>
-            <button className="favourite-button" onClick={() => dispatch(removeFavourite(name, code, mid))}>Usuń z ulubionych</button>
+            <button className='favourite-button' onClick={() => setViewPopup(true)}>Usuń z ulubionych</button>
+            <RemovePopup trigger={viewPopup} setTrigger={setViewPopup} name={name} code={code} mid={mid}/>
             <span><i style={{color: '#F45B69'}} className="fas fa-heart"></i></span>
           </div>
         </div>

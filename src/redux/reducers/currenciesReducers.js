@@ -3,7 +3,8 @@ import {
   CURRENCIES_LIST_SUCCESS,
   CURRENCIES_LIST_FAIL,
   FAVOURITE_ADDED,
-  FAVOURITE_REMOVED
+  FAVOURITE_REMOVED,
+  FAVORITES_ALL_REMOVED
 } from '../constants/currenciesConstants';
 
 export const currenciesListReducer = (state = { currencies: [] }, action) => {
@@ -22,13 +23,15 @@ export const currenciesListReducer = (state = { currencies: [] }, action) => {
 export const favorites = (state = [], action) => {
   switch (action.type) {
     case FAVOURITE_ADDED:
-      if(state.find(el => el.code === action.payload.code)){
+      if(state.find(element => element.code === action.payload.code)){
         return state
       } else {
         return state.concat(action.payload)
       }
     case FAVOURITE_REMOVED: 
-      return state.filter(el => el.code !== action.payload.code)
+      return state.filter(element => element.code !== action.payload.code)
+    case FAVORITES_ALL_REMOVED:
+      return state = []
     default: 
       return state
   }

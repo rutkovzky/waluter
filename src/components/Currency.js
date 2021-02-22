@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../styles/Currency.css';
 import { useDispatch } from 'react-redux';  
 import { addFavourite } from '../redux/actions/currenciesActions';
