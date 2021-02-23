@@ -9,8 +9,10 @@ const RemovePopup = (props) => {
     <div className='popup-container'>
       <div className="popup-inner">
         <p>Czy na pewno chcesz usunąć wybraną walutę z ulubionych?</p>
-        <button className='popup-button' onClick={() => props.setTrigger(false)}>Anuluj</button>
-        <button className='popup-button' onClick={() => { dispatch(removeFavourite(props.name, props.code, props.mid)); props.setTrigger(false)}}>Potwierdź</button>
+        <div>
+          <button className='popup-button' onClick={() => { dispatch(removeFavourite(props.name, props.code, props.mid)); props.setTrigger(false)}}>Potwierdź</button>
+          <button className='popup-button' onClick={() => props.setTrigger(false)}>Anuluj</button>
+        </div>
         {props.children}
       </div>
     </div>

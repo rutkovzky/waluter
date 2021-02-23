@@ -1,11 +1,11 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux'
 import FavouriteCurrency from '../components/FavouriteCurrency';
-import { removeAllFavorites } from '../redux/actions/currenciesActions';
-import '../styles/FavouritePage.css'
+import RemoveAllCurrenciesPopup from '../components/RemoveAllCurrenciesPopup.js'
+import '../styles/FavoritesPage.css'
 
 const FavouritesPage = () => {
-  const dispatch = useDispatch()
+  const [viewPopup, setViewPopup] = useState(false)
 
   const favorites = useSelector(state => state.favorites)
   return (
@@ -17,9 +17,10 @@ const FavouritesPage = () => {
       <div className='favourite-component'>
         <h1 className='favourite-component-h1'>Ulubione waluty użytkownika</h1>
         {favorites.map(favourite => (
-          <FavouriteCurrency name={favourite.name} code={favourite.code} mid={favourite.mid}/>
+          <FavouriteCurrency key={favourite.code} name={favourite.name} code={favourite.code} mid={favourite.mid}/>
         ))}
-        <button className="favourite-component-button" onClick={() => dispatch(removeAllFavorites(favorites))}>Usuń wszystkie waluty</button>
+        <button className="favourite-component-button" onClick={() => setViewPopup(true)}>Usuń wszystkie waluty</button>
+        <RemoveAllCurrenciesPopup trigger={viewPopup} setTrigger={setViewPopup} favorites={favorites}/>
       </div>
       }
     </>
