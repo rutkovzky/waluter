@@ -36,7 +36,7 @@ const HomePage = () => {
       </div>
       {filterCurrencies.map(currency => {
         return(
-          <Currency key={currency.code} name={currency.currency} code={currency.code} mid={currency.mid} />
+          <Currency key={currency.code} name={currency.currency} code={currency.code} mid={currency.mid} currencies={currencies}/>
         )
       })}
     </div>
